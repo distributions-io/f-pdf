@@ -2,8 +2,8 @@ options( digits = 16 )
 library( jsonlite )
 
 
-d1 = 1
-d2 = 1
+d1 = 4
+d2 = 9
 x = c( -5, -2.5, 0, 2.5, 5 )
 y = df( x, d1,d2 )
 
