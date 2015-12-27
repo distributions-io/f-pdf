@@ -7,7 +7,7 @@ Probability Density Function
 The [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for a [F](https://en.wikipedia.org/wiki/F_distribution) random variable is
 
 <div class="equation" align="center" data-raw-text="f(x; d_1,d_2) = \frac{\sqrt{\frac{(d_1\,x)^{d_1}\,\,d_2^{d_2}} {(d_1\,x+d_2)^{d_1+d_2}}}} {x\,\mathrm{B}\!\left(\frac{d_1}{2},\frac{d_2}{2}\right)}" data-equation="eq:pdf_function">
-	<img src="" alt="Probability density function (PDF) for a F distribution.">
+	<img src="https://cdn.rawgit.com/distributions-io/f-pdf/82860693fdaa32c41e80ad5e6f598c7ef689eb4c/docs/img/eqn.svg" alt="Probability density function (PDF) for a F distribution.">
 	<br>
 </div>
 
