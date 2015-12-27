@@ -20,18 +20,23 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/compute-io/f-pdf.git"
+    "url": "git://github.com/distributions-io/f-pdf.git"
   },
   "keywords": [
     "distributions.io",
     "distributions",
+    "distribution",
     "probability",
     "statistics",
     "stats",
-    "pdf"
+    "pdf",
+    "density",
+    "ratio",
+    "chi-square",
+    "fisher"
   ],
   "bugs": {
-    "url": "https://github.com/compute-io/f-pdf/issues"
+    "url": "https://github.com/distributions-io/f-pdf/issues"
   },
   "dependencies": {
     "compute-array-constructors": "^1.0.0",

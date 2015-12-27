@@ -40,18 +40,18 @@ var matrix = require( 'dstructs-matrix' ),
 	i;
 
 out = pdf( 1 );
-// returns
+// returns 0.159
 
 out = pdf( -1 );
-// returns 0
+// returns NaN
 
 x = [ 0, 0.5, 1, 1.5, 2, 2.5 ];
 out = pdf( x );
-// returns [...]
+// returns [ Infinity, 0.3, ~0.159, ~0.104, ~0.075, ~0.058 ]
 
 x = new Int8Array( x );
 out = pdf( x );
-// returns Float64Array( [...] )
+// returns Float64Array( [Infinity,Infinity,~0.159,~0.159,~0.075,~0.075] )
 
 x = new Float32Array( 6 );
 for ( i = 0; i < 6; i++ ) {
@@ -66,10 +66,11 @@ mat = matrix( x, [3,2], 'float32' );
 
 out = pdf( mat );
 /*
-	[
-
-	   ]
+	[ Infinity 0.3
+	  ~0.159 ~0.104
+	  ~0.075 ~0.058 ]
 */
+
 ```
 
 The function accepts the following `options`:
@@ -88,10 +89,11 @@ A [F](https://en.wikipedia.org/wiki/F_distribution) distribution is a function o
 var x = [ 0, 0.5, 1, 1.5, 2, 2.5 ];
 
 var out = pdf( x, {
-	'd1': 8,
-	'd2': 8
+	'd1': 4,
+	'd2': 2
 });
-// returns [...]
+// returns [ 0, 0.5, ~0.296, ~0.187, ~0.128, ~0.093 ]
+
 ```
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `array` values.
@@ -113,7 +115,8 @@ function getValue( d, i ) {
 var out = pdf( data, {
 	'accessor': getValue
 });
-// returns [...]
+// returns [ Infinity, 0.3, ~0.159, ~0.104, ~0.075, ~0.058 ]
+
 ```
 
 
@@ -135,12 +138,12 @@ var out = pdf( data, {
 });
 /*
 	[
-		{'x':[0,]},
-		{'x':[1,]},
-		{'x':[2,]},
-		{'x':[3,]},
-		{'x':[4,]},
-		{'x':[5,]}
+		{'x':[0,Infinity]},
+		{'x':[1,0.3]},
+		{'x':[2,~0.159]},
+		{'x':[3,~0.104]},
+		{'x':[4,~0.075]},
+		{'x':[5,~0.058]}
 	]
 */
 
@@ -158,13 +161,14 @@ x = new Int8Array( [0,1,2,3,4] );
 out = pdf( x, {
 	'dtype': 'int32'
 });
-// returns Int32Array( [...] )
+// returns Int32Array( [0,0,0,0,0] )
 
 // Works for plain arrays, as well...
 out = pdf( [0,0.5,1,1.5,2], {
 	'dtype': 'uint8'
 });
-// returns Uint8Array( [...] )
+// returns Uint8Array( [0,0,0,0,0] )
+
 ```
 
 By default, the function returns a new data structure. To mutate the input data structure (e.g., when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
@@ -181,7 +185,7 @@ x = [ 0, 0.5, 1, 1.5, 2 ];
 out = pdf( x, {
 	'copy': false
 });
-// returns [...]
+// returns [ Infinity, 0.3, ~0.159, ~0.104, ~0.075 ]
 
 bool = ( x === out );
 // returns true
@@ -201,9 +205,9 @@ out = pdf( mat, {
 	'copy': false
 });
 /*
-	[
-
-	   ]
+	[ Infinity 0.3
+	  ~0.159 ~0.104
+	  ~0.075 ~0.058 ]
 */
 
 bool = ( mat === out );
@@ -380,7 +384,7 @@ Copyright &copy; 2015. The [Compute.io](https://github.com/compute-io) Authors.
 [travis-image]: http://img.shields.io/travis/distributions-io/f-pdf/master.svg
 [travis-url]: https://travis-ci.org/distributions-io/f-pdf
 
-[codecov-image]: https://img.shields.io/codecov/github/distributions-io/f-pdf/master.svg
+[codecov-image]: https://img.shields.io/codecov/c/github/distributions-io/f-pdf/master.svg
 [codecov-url]: https://codecov.io/github/distributions-io/f-pdf?branch=master
 
 [dependencies-image]: http://img.shields.io/david/distributions-io/f-pdf.svg
