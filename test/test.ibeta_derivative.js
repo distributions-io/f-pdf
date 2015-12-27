@@ -67,6 +67,34 @@ describe( 'ibeta_derivative', function tests() {
 		}
 	});
 
+	it( 'should return NaN for b < 0 ', function test() {
+		var x, a,
+			i, j;
+		x = [
+			0.2,
+			0.4,
+			1/10,
+			0.8,
+			0.9
+		];
+		a = [
+			0.2,
+			0.4,
+			1/10,
+			0.8,
+			0.9,
+			2,
+			5,
+			9,
+			12
+		];
+		for ( i = 0; i < x.length; i++ ) {
+			for ( j = 0; j < a.length; j++ ) {
+				assert.isTrue( isnan( ibeta_derivative( x[ i ], a[ j ], -0.2 ) ) );
+			}
+		}
+	});
+
 	it( 'should correctly compute the partial derivative when x = 0', function test() {
 		assert.isTrue( isnan( ibeta_derivative( 0, 0.5, 2 ) ) );
 		assert.strictEqual( ibeta_derivative( 0, 2, 0.5 ), 0 );

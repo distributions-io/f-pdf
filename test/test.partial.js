@@ -10,7 +10,7 @@ var // Expectation library:
 	isFiniteNumber = require( 'validate.io-finite' ),
 
 	// Check whether an element is `NaN`
-	isnan = require( 'validate.io-nan' ),	
+	isnan = require( 'validate.io-nan' ),
 
 	// Module to be tested:
 	partial = require( './../lib/partial.js' );
@@ -58,6 +58,11 @@ describe( 'partial pdf', function tests() {
 	it( 'should return `NaN` if provided `NaN` as input', function test() {
 		var pdf = partial(  d1, d2 );
 		assert.isTrue( isnan( pdf( NaN ) ) );
+	});
+
+	it( 'should return 1 for x=0 when d1=2', function test() {
+		var pdf = partial( 2, 3 );
+		assert.strictEqual( pdf( 0 ), 1 );
 	});
 
 });

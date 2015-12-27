@@ -10,7 +10,7 @@ var // Expectation library:
 	isFiniteNumber = require( 'validate.io-finite' ),
 
 	// Check whether an element is `NaN`
-	isnan = require( 'validate.io-nan' ),	
+	isnan = require( 'validate.io-nan' ),
 
 	// Module to be tested:
 	pdf = require( './../lib/number.js' );
@@ -50,6 +50,14 @@ describe( 'number pdf', function tests() {
 
 	it( 'should return `NaN` if provided `NaN` as input', function test() {
 		assert.isTrue( isnan( pdf( NaN, d1, d2 ) ) );
+	});
+
+	it( 'should return 1 for x=0 when d1=2', function test() {
+		assert.strictEqual( pdf( 0, 2, 3 ), 1 );
+	});
+
+	it( 'should return `NaN` for x=0 if d1 < 2', function test() {
+		assert.isTrue( isnan( pdf( 0, 1.5, 3 ) ) );
 	});
 
 });
