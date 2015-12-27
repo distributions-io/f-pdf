@@ -6,12 +6,12 @@ Probability Density Function
 
 The [probability density function](https://en.wikipedia.org/wiki/Probability_density_function) (PDF) for a [F](https://en.wikipedia.org/wiki/F_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="" data-equation="eq:pdf_function">
+<div class="equation" align="center" data-raw-text="f(x; d_1,d_2) = \frac{\sqrt{\frac{(d_1\,x)^{d_1}\,\,d_2^{d_2}} {(d_1\,x+d_2)^{d_1+d_2}}}} {x\,\mathrm{B}\!\left(\frac{d_1}{2},\frac{d_2}{2}\right)}" data-equation="eq:pdf_function">
 	<img src="" alt="Probability density function (PDF) for a F distribution.">
 	<br>
 </div>
 
-where `d1` is the numerator degrees of freedom and `d2` is the denominator degrees of freedom.
+where `d1` is the numerator degrees of freedom and `d2` is the denominator degrees of freedom and `B` is the [`Beta`](https://github.com/compute-io/beta) function.
 
 ## Installation
 
