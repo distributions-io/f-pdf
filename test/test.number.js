@@ -56,8 +56,8 @@ describe( 'number pdf', function tests() {
 		assert.strictEqual( pdf( 0, 2, 3 ), 1 );
 	});
 
-	it( 'should return `NaN` for x=0 if d1 < 2', function test() {
-		assert.isTrue( isnan( pdf( 0, 1.5, 3 ) ) );
+	it( 'should return Infinity for x=0 if d1 < 2', function test() {
+		assert.strictEqual( pdf( 0, 1.5, 3 ), Number.POSITIVE_INFINITY );
 	});
 
 });

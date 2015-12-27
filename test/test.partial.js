@@ -65,4 +65,9 @@ describe( 'partial pdf', function tests() {
 		assert.strictEqual( pdf( 0 ), 1 );
 	});
 
+	it( 'should return Infinity for x=0 if d1 < 2', function test() {
+		var pdf = partial( 1.5, 3 );
+		assert.strictEqual( pdf( 0 ), Number.POSITIVE_INFINITY );
+	});
+
 });
